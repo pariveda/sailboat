@@ -1,39 +1,33 @@
 
 const page = document.getElementById('content');
 
-var Route = function(className, options) {
-    if (!sessionStorage.getItem("isSignedIn")) {
-        window.location += '#signin';
-    }
-    ReactDOM.render(rel(className, options), page);
-};
-
 const AppRouter = Backbone.Router.extend({
     routes: {
         "":"home",
         "signin":"signin",
         "signout":"signout",
         "*actions": "notfound"
+    },
+    home: function() {
+        var token = sessionStorage.getItem("api-access-token");
+        console.log(!token);
+        if (!token) {
+            window.location.href = '/#signin';
+        } else {
+            ReactDOM.render(rel(Home, {}), page);
+        }
+    },
+    signin: function() {
+        ReactDOM.render(rel(Signin, {}), page);
+    },
+    signout: function() {
+        delete sessionStorage["api-access-token"];
+        window.location.href = '/#signin';
+    },
+    notfound: function() {
+        page.innerHTML = "Not Found";
     }
 });
 
-const app_router = new AppRouter();
-
-app_router.on('route:home', function () {
-    Route(Home, {})
-});
-
-app_router.on('route:signin', function () {
-    ReactDOM.render(rel(Signin, {}), page);
-});
-
-app_router.on('route:signout', function () {
-    sessionStorage.setItem("isSignedIn", true);
-    window.location += '#signin';
-});
-
-app_router.on('route:notfound', function () {
-    page.innerHTML = "Not Found";
-});
-
+const _ = new AppRouter();
 Backbone.history.start();

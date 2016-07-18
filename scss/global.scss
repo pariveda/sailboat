@@ -1,0 +1,43 @@
+
+html, body {
+  width: 100%;
+  background-color: #e7ebee;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  clear: both;
+  color: #1f77b4;
+  margin: 0;
+  padding-left: 0;
+  font-size: 2em;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#page-wrapper {
+  padding: 50px 0 0 0;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media(min-width: 768px) {
+  #page-wrapper {
+      position: inherit;
+      padding: 50px 0 0 64px;
+  }
+
+  #wrapper.toggled #page-wrapper {
+      padding: 50px 0 0 220px;
+  }
+}

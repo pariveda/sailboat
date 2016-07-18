@@ -2,7 +2,7 @@
 const Navigation = React.createClass({
     render: function() {
         return (
-            rel('nav', {id:'nav-wrapper', className:'navbar navbar-default navbar-fixed-top', role:'navigation'}, [
+            rel('nav', {id:'nav-wrapper', className:'navbar navbar-inverse navbar-fixed-top', role:'navigation'}, [
                 rel('div', {id:'top-menu-wrapper'}, [
                     rel('div', {className:'navbar-header'}, rel('span', {}, [
                         rel('a', {className:'navbar-brand', href:''}, 'Static S3 Web Example')

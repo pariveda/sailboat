@@ -1,6 +1,6 @@
 
 nav {
-  background-color: #1f77b4 !important;
+  //background-color: #333 !important;
 }
 
 .navbar {
@@ -9,21 +9,22 @@ nav {
   height: 50px
 }
 
+#top-menu-wrapper .navbar-header {
+  display: inline-block;
+}
+
 #top-menu-wrapper {
   height: 50px
 }
 
 #top-menu-wrapper a {
-  color: #fff;
+  color: #ccc;
 }
 
 #top-menu-wrapper a:hover,
 #top-menu-wrapper a:focus {
-  background-color: #1f77b4;
-}
-
-#top-menu-wrapper .navbar-header {
-  display: inline-block;
+  color: #fff;
+  background-color: #222;
 }
 
 #top-menu-wrapper .navbar-default .navbar-brand,
@@ -32,12 +33,10 @@ nav {
   color: #fff;
 }
 
-#top-menu-wrapper .dropdown-menu li a {
-  color: #333;
-}
-
+#top-menu-wrapper .dropdown-menu li a,
 #top-menu-wrapper .dropdown-menu li a:hover {
-  background-color: #f5f5f5;
+  background-color: #fff;
+  color: #333;
 }
 
 #top-right-nav-options {
@@ -55,91 +54,4 @@ nav {
 #top-right-nav-options .dropdown-toggle {
   height: 50px;
   padding-top: 15px;
-}
-
-.sidebar {
-  background-color: #4c5763;
-}
-
-.sidebar .navbar-collapse {
-  padding-right: 0;
-  padding-left: 0;
-  border: none;
-}
-
-.sidebar ul li {
-  height: 50px;
-}
-
-.sidebar ul li:focus,
-.sidebar ul li:hover {
-  background-color: #353d47;
-}
-
-.sidebar ul li a {
-  color: #fff;
-  font-weight:  100;
-  height: 50px;
-  padding-left: 20px;
-  padding-top: 15px;
-}
-
-.sidebar ul li a:focus,
-.sidebar ul li a:hover {
-  color: #fff;
-  background-color: #353d47;
-}
-
-.sidebar ul li a i {
-  font-size: 1.125em;
-}
-
-.sidebar span {
-  padding-left: 10px;
-}
-
-#side-menu-wrapper {
-  height: 1000px;
-}
-
-@media(max-width: 767px) {
-
-    .sidebar {
-      display: none;
-    }
-
-    #wrapper.toggled .sidebar {
-      margin: 0;
-      display: block;
-    }
-
-}
-
-@media(min-width: 768px) {
-
-    .sidebar {
-      z-index: 1;
-      position: absolute;
-      width: 64px;
-    }
-
-    .sidebar span {
-      display: none;
-    }
-
-    .sidebar li > ul {
-        display:  none;
-    }
-
-    #wrapper.toggled .sidebar li > ul:not(.collapse) {
-        display:  inline;
-    }
-
-    #wrapper.toggled .sidebar {
-        width:  220px;
-    }
-
-    #wrapper.toggled .sidebar span {
-        display:  inline;
-    }
 }

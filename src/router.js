@@ -3,7 +3,7 @@ const page = document.getElementById('content');
 
 var Route = function(className, options) {
     if (!sessionStorage.getItem("isSignedIn")) {
-        window.location = '/#signin';
+        window.location += '#signin';
     }
     ReactDOM.render(rel(className, options), page);
 };

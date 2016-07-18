@@ -12,18 +12,28 @@ const AppRouter = Backbone.Router.extend({
     routes: {
         "":"home",
         "signin":"signin",
+        "signout":"signout",
         "*actions": "notfound"
     }
 });
 
 const app_router = new AppRouter();
-app_router.on('route:signin', function () {
-    ReactDOM.render(rel(Signin, {}), page);
-});
+
 app_router.on('route:home', function () {
     Route(Home, {})
 });
+
+app_router.on('route:signin', function () {
+    ReactDOM.render(rel(Signin, {}), page);
+});
+
+app_router.on('route:signout', function () {
+    sessionStorage.setItem("isSignedIn", true);
+    window.location += '#signin';
+});
+
 app_router.on('route:notfound', function () {
     page.innerHTML = "Not Found";
 });
+
 Backbone.history.start();

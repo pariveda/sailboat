@@ -1,4 +1,12 @@
 {
+  "name": "s3-hosted-static-website-example",
+  "version": "0.1.0",
+  "description": "Static website template for S3 hosted websites. Demonstrates cross domain auth and rest access with stateless JWT tokens.",
+  "author": {
+    "name": "ParivedaSolutions.com"
+  },
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",

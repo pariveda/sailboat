@@ -4,17 +4,20 @@ const Signin = React.createClass({
         e.preventDefault();
         var email = document.getElementById('inputEmail').value;
         var password = document.getElementById('inputPassword').value;
+        console.log({username:email, password:password});
         $.ajax({
             type: 'POST',
             url: 'https://ihq2uwfqtf.execute-api.us-west-2.amazonaws.com/dev/authenticate',
-            contentType: 'application/json',
-            data: JSON.stringify({email:email, password:password}),
+            // contentType: 'application/json',
+            data: JSON.stringify({username:email, password:password}),
             success: function(result) {
+                console.log("post success");
                 console.log(result);
                 sessionStorage.setItem("isSignedIn", true);
                 window.location = "/";
             }.bind(this),
             error: function(xhr, status, err) {
+                console.log("post fail");
                 console.log(xhr);
                 console.log(status);
                 console.log(err);

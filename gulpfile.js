@@ -62,7 +62,7 @@ gulp.task('watch', function() {
 gulp.task('build', ['scss', 'src', 'copy']);
 
 gulp.task('deploy', ['build'], function (cb) {
-    exec('aws s3 sync dist/ s3://fubitzbucket/ --delete --profile pariveda',
+    exec('aws s3 sync dist/ s3://sailboatwebapp/ --delete --profile pariveda',
         function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);

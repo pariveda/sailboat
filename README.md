@@ -5,6 +5,44 @@ Static website template for S3 hosted websites. Demonstrates cross domain auth a
 Built to be used with https://github.com/pariveda/serverless-apigateway-lambda-starter as a serverless backend allowing 
 a complete serverless architecture. 
 
+##Setup and Install
+
+Clone the project from github:
+```
+git clone https://github.com/pariveda/sailboat.git
+```
+
+Install project dependencies via npm in project root:
+```
+npm install
+```
+
+Update gulp build script with your bucket name and AWS profile, then build and deploy (please see AWS docs for setting up cli and profile keys):
+```
+gulp deploy
+```
+
+##Setting up an S3 bucket for hosting a static website
+ 
+- Create bucket and view bucket properties
+- Click on "Static Website Hosting" and enable website hosting
+- For index document enter: "index.html"
+- Click "Permissions" then "Edit bucket policy" and enter the following text, modified with your bucket name
+```
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicReadGetObject",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::YOUR-BUCKET-NAME-HERE/*"
+		}
+	]
+}
+```
+
 # License
 
 Sailboat - Static website project template

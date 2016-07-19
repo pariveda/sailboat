@@ -1,11 +1,11 @@
 {
-  "name": "s3-hosted-static-website-example",
+  "name": "Sailboat",
   "version": "0.1.0",
   "description": "Static website template for S3 hosted websites. Demonstrates cross domain auth and rest access with stateless JWT tokens.",
   "author": {
-    "name": "ParivedaSolutions.com"
+    "name": "dan.hogue@parivedasolutions.com"
   },
-  "license": "MIT",
+  "license": "Apache 2.0",
   "private": false,
   "dependencies": {
     "gulp": "^3.9.0",

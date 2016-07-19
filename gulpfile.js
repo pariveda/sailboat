@@ -29,7 +29,7 @@ gulp.task('scss', function() {
         .pipe(gulp.dest(distfolder+'/css'))
 });
 
-gulp.task('scripts', function() {
+gulp.task('src', function() {
     return gulp.src([
             'src/global.js',
             'src/components/*.js',
@@ -59,7 +59,7 @@ gulp.task('watch', function() {
     ], ['build']);
 });
 
-gulp.task('build', ['scss', 'scripts', 'copy']);
+gulp.task('build', ['scss', 'src', 'copy']);
 
 gulp.task('deploy', ['build'], function (cb) {
     exec('aws s3 sync dist/ s3://fubitzbucket/ --delete --profile pariveda',

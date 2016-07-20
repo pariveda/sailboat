@@ -2,7 +2,7 @@
 const Home = React.createClass({
     getInitialState: function() {
         return {
-            data: "hi"
+            data: "Attempting to retrieve data from api..."
         }
     },
     componentDidMount: function() {
@@ -10,7 +10,7 @@ const Home = React.createClass({
             return;
         }
         $.ajax({
-            url: 'https://ihq2uwfqtf.execute-api.us-west-2.amazonaws.com/dev/resources/hello',
+            url: 'https://fsapgttgb6.execute-api.us-west-2.amazonaws.com/dev/resources/hello',
             dataType: 'json',
             cache: false,
             crossDomain: true,
@@ -18,12 +18,13 @@ const Home = React.createClass({
                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("api-access-token"));
             },
             success: function(result) {
-                console.log(result);
-                this.setState({data:JSON.stringify(result)});
+                this.setState({data:"Successfully retrieved data..."});
+                setTimeout(function(){
+                    this.setState({data:JSON.stringify(result, undefined, 2)})
+                }.bind(this), 1000);
             }.bind(this),
             error: function(xhr, status, err) {
-                console.log(xhr);
-                console.log(status);
+                this.setState({data:"Error retrieving data."});
                 console.log(err);
             }.bind(this)
         });
@@ -34,7 +35,7 @@ const Home = React.createClass({
                 rel(Navigation, {}),
                 rel('div', {id:'page-wrapper'}, [
                     rel('h1', {}, "Hello"),
-                    rel('p', {}, this.state.data)
+                    rel('pre', {}, this.state.data)
                 ])
             ])
         );

@@ -4,15 +4,16 @@ const Signin = React.createClass({
         e.preventDefault();
         var email = document.getElementById('inputEmail').value;
         var password = document.getElementById('inputPassword').value;
-        console.log({username:email, password:password});
         $.ajax({
             type: 'POST',
-            url: 'https://ihq2uwfqtf.execute-api.us-west-2.amazonaws.com/dev/authenticate',
+            url: 'https://fsapgttgb6.execute-api.us-west-2.amazonaws.com/dev/authenticate',
             contentType: 'application/json',
             data: JSON.stringify({username:email, password:password}),
             crossDomain: true,
             success: function(result) {
+                console.log("signin request succeeded");
                 if (result.token != null) {
+                    console.log("signin successful");
                     sessionStorage.setItem("api-access-token", result.token);
                     window.location.href = "/#";
                 } else {
@@ -20,6 +21,7 @@ const Signin = React.createClass({
                 }
             }.bind(this),
             error: function(xhr, status, err) {
+                console.log("signin failed due to error");
                 delete sessionStorage["api-access-token"];
                 console.log(err);
             }.bind(this)

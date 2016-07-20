@@ -1,5 +1,5 @@
 
-const page = document.getElementById('content');
+const page = document.getElementById("content");
 
 const AppRouter = Backbone.Router.extend({
     routes: {
@@ -12,7 +12,7 @@ const AppRouter = Backbone.Router.extend({
         var token = sessionStorage.getItem("api-access-token");
         console.log(!token);
         if (!token) {
-            window.location.href = '/#signin';
+            window.location.href = "/#signin";
         } else {
             ReactDOM.render(rel(Home, {}), page);
         }
@@ -22,7 +22,7 @@ const AppRouter = Backbone.Router.extend({
     },
     signout: function() {
         delete sessionStorage["api-access-token"];
-        window.location.href = '/#signin';
+        window.location.href = "/#signin";
     },
     notfound: function() {
         page.innerHTML = "Not Found";

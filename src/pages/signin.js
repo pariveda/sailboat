@@ -45,7 +45,7 @@ const Signin = React.createClass({
                         rel("input", {type:"email", id:"inputEmail", className:"form-control", placeholder:"Email address", required:"true", autofocus:"true"}),
                         rel("label", {for:"inputPassword", className:"sr-only"}, "Password"),
                         rel("input", {type:"password", id:"inputPassword", className:"form-control", placeholder:"Password", required:"true"}),
-                        rel("button", {className:"btn btn-lg btn-default btn-block", onClick:this._signin}, "Sign in")
+                        rel("button", {className:"btn btn-lg btn-info btn-block", onClick:this._signin}, "Sign in")
                     ])
                 ])
             ])

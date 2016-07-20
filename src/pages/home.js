@@ -39,17 +39,19 @@ const Home = React.createClass({
             }.bind(this)
         });
     },
-    _updateBaseURL: function(e) {
+    _updateAPIInfo: function(e) {
         e.preventDefault();
-        console.log("updateing api-base-url");
+        console.log("updateing api info");
         var baseurl = document.getElementById("apibaseurl").value;
+        var token = document.getElementById("apitoken").value;
         console.log(baseurl);
-        if (!baseurl) {
-            this.setState({data:"Error: Please provide SailboatAPI base url"});
+        if (!baseurl || !token) {
+            this.setState({data:"Error: Please provide valid SailboatAPI base url and jwt token"});
         } else {
             this.setState({data:"Attempting to retrieve data from api..."});
         }
         sessionStorage.setItem("api-base-url", baseurl);
+        sessionStorage.setItem("api-access-token", token);
         this._loadData();
     },
     render: function (){
@@ -61,7 +63,9 @@ const Home = React.createClass({
                     rel("form", {className:"form-inline"}, [
                         rel("label", {for:"apibaseurl"}, "API Base URL:"),
                         rel("input", {id:"apibaseurl", className:"form-control", defaultValue:sessionStorage.getItem("api-base-url")}),
-                        rel("button", {id:"", className:"btn btn-default", onClick:this._updateBaseURL.bind(this)}, "Fetch"),
+                        rel("label", {for:"apitoken"}, "API JWT Token:"),
+                        rel("input", {id:"apitoken", className:"form-control", defaultValue:sessionStorage.getItem("api-access-token")}),
+                        rel("button", {className:"btn btn-info", onClick:this._updateAPIInfo.bind(this)}, "Update"),
                         rel("pre", {}, this.state.data)
                     ])
                 ])

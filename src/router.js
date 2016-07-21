@@ -1,21 +1,29 @@
 
 const page = document.getElementById("content");
 
+const rout = function(classname, options) {
+    var token = sessionStorage.getItem("api-access-token");
+    console.log(!token);
+    if (!token) {
+        window.location.href = "/#signin";
+    } else {
+        ReactDOM.render(rel(classname, options), page);
+    }
+};
+
 const AppRouter = Backbone.Router.extend({
     routes: {
         "":"home",
+        "data":"data",
         "signin":"signin",
         "signout":"signout",
         "*actions": "notfound"
     },
     home: function() {
-        var token = sessionStorage.getItem("api-access-token");
-        console.log(!token);
-        if (!token) {
-            window.location.href = "/#signin";
-        } else {
-            ReactDOM.render(rel(Home, {}), page);
-        }
+        rout(Home, {});
+    },
+    data: function() {
+        rout(Data, {});
     },
     signin: function() {
         ReactDOM.render(rel(Signin, {}), page);

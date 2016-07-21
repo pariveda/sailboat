@@ -5,8 +5,12 @@ const Navigation = React.createClass({
             rel('nav', {id:'nav-wrapper', className:'navbar navbar-inverse navbar-fixed-top', role:'navigation'}, [
                 rel('div', {id:'top-menu-wrapper'}, [
                     rel('div', {className:'navbar-header'}, rel('span', {}, [
-                        rel('a', {className:'navbar-brand', href:'/#'}, 'Static S3 Web Example')
+                        rel('a', {className:'navbar-brand', href:'/#'}, 'Sailboat')
                     ])),
+                    rel('ul', {id:'top-nav-options', className:'nav navbar-nav'}, [
+                        rel('li', {}, rel('a', {href:"#"}, 'Home')),
+                        rel('li', {}, rel('a', {href:"#data"}, 'Data Entry'))
+                    ]),
                     rel('ul', {id:'top-right-nav-options', className:'nav navbar-top-links navbar-right pull-right'}, [
                             rel('li', {className:'dropdown'}, [
                                 rel('a', {className:'dropdown-toggle', 'data-toggle':'dropdown', href:'#'}, [
